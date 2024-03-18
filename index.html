@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100vw;
+      }
+      input {
+        padding: 8px;
+        border: 1px solid black;
+        border-radius: 8px;
+        width: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="url" type="text" />
+    <button onclick="download()">Submit</button>
+
+    <script>
+      const url = document.getElementById("url");
+
+      function download() {
+        console.log(url.value);
+
+        fetch(`https://convert2mp3s.com/api/widgetv2?url=${url.value}`)
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      }
+    </script>
+  </body>
+</html>
